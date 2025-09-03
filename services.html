@@ -1,0 +1,1086 @@
+3<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Services - Laguna Guesthouse</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap">
+    <link rel="icon" href="assets/La-gunaLogo.png">
+
+    <style>
+        :root {
+            --primary: #2c5aa0;
+            --primary-dark: #1e3a5f;
+            --secondary: #ffd700;
+            --secondary-light: #ffed4e;
+            --accent: #00ff88;
+            --text-dark: #333;
+            --text-light: #666;
+            --white: #ffffff;
+            --light-bg: #f8fdff;
+            --card-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            --transition: all 0.3s ease;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            line-height: 1.6;
+            color: var(--text-dark);
+            overflow-x: hidden;
+            scroll-behavior: smooth;
+            background-color: var(--light-bg);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header */
+        .header {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+            color: var(--white);
+            padding: 1rem 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            backdrop-filter: blur(10px);
+            transition: var(--transition);
+        }
+
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: bold;
+            text-decoration: none;
+            color: var(--white);
+            background: linear-gradient(45deg, var(--secondary), var(--secondary-light));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .logo-img {
+            width: 40px;
+            height: 40px;
+            background: linear-gradient(45deg, var(--secondary), var(--secondary-light));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--primary-dark);
+            font-weight: bold;
+            font-size: 18px;
+        }
+
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        .nav-menu a {
+            color: var(--white);
+            text-decoration: none;
+            transition: var(--transition);
+            padding: 0.5rem 1rem;
+            border-radius: 25px;
+            font-weight: 500;
+        }
+
+        .nav-menu a:hover, .nav-menu a.active {
+            background: rgba(255, 215, 0, 0.2);
+            transform: translateY(-2px);
+        }
+
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            color: var(--white);
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+
+        /* Page Header */
+        .page-header {
+            background: linear-gradient(135deg, rgba(44, 90, 160, 0.9) 0%, rgba(30, 58, 95, 0.9) 100%), 
+                        url('./assets/a\ guesthouse\ in\ africa.jpg');
+            background-size: cover;
+            background-position: center;
+            padding: 10rem 0 5rem;
+            text-align: center;
+            color: var(--white);
+            margin-top: 80px;
+        }
+
+        .page-header h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            background: linear-gradient(45deg, var(--secondary), var(--secondary-light), var(--white));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .breadcrumb {
+            display: flex;
+            justify-content: center;
+            list-style: none;
+            gap: 0.5rem;
+        }
+
+        .breadcrumb a {
+            color: var(--secondary);
+            text-decoration: none;
+        }
+
+        .breadcrumb li:not(:last-child)::after {
+            content: '/';
+            margin-left: 0.5rem;
+            color: var(--white);
+        }
+
+        /* Services Section */
+        .services {
+            padding: 6rem 0;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            color: var(--primary-dark);
+            margin-bottom: 1rem;
+            position: relative;
+            display: inline-block;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background: linear-gradient(to right, var(--primary), var(--secondary));
+            border-radius: 2px;
+        }
+
+        .section-subtitle {
+            text-align: center;
+            font-size: 1.2rem;
+            color: var(--text-light);
+            margin-bottom: 4rem;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .service-card {
+            background: var(--white);
+            padding: 2.5rem;
+            border-radius: 20px;
+            box-shadow: var(--card-shadow);
+            transition: var(--transition);
+            border: 1px solid rgba(44, 90, 160, 0.1);
+            position: relative;
+            overflow: hidden;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .service-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: linear-gradient(45deg, var(--primary), var(--secondary));
+        }
+
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 50px rgba(0,0,0,0.15);
+        }
+
+        .service-icon {
+            font-size: 3rem;
+            color: var(--primary);
+            margin-bottom: 1.5rem;
+            background: linear-gradient(45deg, var(--primary), var(--primary-dark));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .service-card h3 {
+            font-size: 1.5rem;
+            color: var(--primary-dark);
+            margin-bottom: 1rem;
+        }
+
+        .service-card p {
+            color: var(--text-light);
+            line-height: 1.7;
+            margin-bottom: 1.5rem;
+            flex-grow: 1;
+        }
+
+        .service-features {
+            margin-top: auto;
+            list-style: none;
+            margin-bottom: 2rem;
+        }
+
+        .service-features li {
+            margin-bottom: 0.5rem;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            color: var(--text-light);
+            font-size: 0.9rem;
+        }
+
+        .service-features li i {
+            color: var(--secondary);
+        }
+
+        .service-cta {
+            margin-top: auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .service-price {
+            font-weight: bold;
+            color: var(--primary);
+            font-size: 1.2rem;
+        }
+
+        .service-btn {
+            background: linear-gradient(45deg, var(--primary), var(--primary-dark));
+            color: var(--white);
+            border: none;
+            padding: 0.8rem 1.5rem;
+            border-radius: 10px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: var(--transition);
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .service-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(44, 90, 160, 0.3);
+        }
+
+        /* Detailed Services Section */
+        .detailed-services {
+            padding: 6rem 0;
+            background: linear-gradient(135deg, var(--primary-dark) 0%, var(--primary) 100%);
+            color: var(--white);
+        }
+
+        .service-tabs {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 1rem;
+            margin-bottom: 3rem;
+        }
+
+        .tab-btn {
+            background: rgba(255, 255, 255, 0.1);
+            color: var(--white);
+            border: none;
+            padding: 1rem 2rem;
+            border-radius: 50px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: var(--transition);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .tab-btn.active {
+            background: var(--secondary);
+            color: var(--primary-dark);
+        }
+
+        .tab-content {
+            display: none;
+            animation: fadeIn 0.5s ease;
+        }
+
+        .tab-content.active {
+            display: block;
+        }
+
+        .tab-inner {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            align-items: center;
+        }
+
+        .tab-image {
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: var(--card-shadow);
+        }
+
+        .tab-image img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        .tab-text h3 {
+            font-size: 2rem;
+            margin-bottom: 1.5rem;
+            color: var(--secondary);
+        }
+
+        .tab-features {
+            list-style: none;
+            margin: 1.5rem 0;
+        }
+
+        .tab-features li {
+            margin-bottom: 0.8rem;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .tab-features li i {
+            color: var(--secondary);
+        }
+
+        /* FAQ Section */
+        .faq {
+            padding: 6rem 0;
+        }
+
+        .accordion {
+            margin-top: 3rem;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .accordion-item {
+            background: var(--white);
+            border-radius: 10px;
+            margin-bottom: 1rem;
+            box-shadow: var(--card-shadow);
+            overflow: hidden;
+        }
+
+        .accordion-header {
+            padding: 1.5rem;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-weight: 600;
+            color: var(--primary-dark);
+        }
+
+        .accordion-content {
+            padding: 0 1.5rem;
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease;
+        }
+
+        .accordion-content.active {
+            max-height: 500px;
+            padding: 0 1.5rem 1.5rem;
+        }
+
+        /* CTA Section */
+        .cta {
+            padding: 6rem 0;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+            color: var(--white);
+            text-align: center;
+        }
+
+        .cta h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .cta p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        /* Footer */
+        .footer {
+            background: var(--primary-dark);
+            color: var(--white);
+            padding: 4rem 0 2rem;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 3rem;
+            margin-bottom: 3rem;
+        }
+
+        .footer-logo {
+            font-size: 1.8rem;
+            font-weight: bold;
+            color: var(--white);
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .footer-about p {
+            margin-bottom: 1.5rem;
+            opacity: 0.8;
+        }
+
+        .footer-heading {
+            font-size: 1.2rem;
+            margin-bottom: 1.5rem;
+            color: var(--secondary);
+            position: relative;
+        }
+
+        .footer-heading::after {
+            content: '';
+            position: absolute;
+            bottom: -8px;
+            left: 0;
+            width: 40px;
+            height: 2px;
+            background: var(--secondary);
+        }
+
+        .footer-links {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 0.8rem;
+        }
+
+        .footer-links a {
+            color: var(--white);
+            text-decoration: none;
+            transition: var(--transition);
+            opacity: 0.8;
+        }
+
+        .footer-links a:hover {
+            opacity: 1;
+            color: var(--secondary);
+            padding-left: 5px;
+        }
+
+        .footer-newsletter p {
+            margin-bottom: 1.5rem;
+            opacity: 0.8;
+        }
+
+        .newsletter-form {
+            display: flex;
+            gap: 10px;
+        }
+
+        .newsletter-form input {
+            flex: 1;
+            padding: 0.8rem;
+            border: none;
+            border-radius: 5px;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .newsletter-form button {
+            background: var(--secondary);
+            color: var(--primary-dark);
+            border: none;
+            padding: 0.8rem 1.2rem;
+            border-radius: 5px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .newsletter-form button:hover {
+            background: var(--secondary-light);
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .footer-bottom p {
+            margin-bottom: 1rem;
+            opacity: 0.8;
+        }
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+            margin-top: 1.5rem;
+        }
+
+        .social-links a {
+            color: var(--white);
+            font-size: 1.2rem;
+            transition: var(--transition);
+        }
+
+        .social-links a:hover {
+            color: var(--secondary);
+            transform: translateY(-3px);
+        }
+
+        /* Animations */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Responsive Design */
+        @media (max-width: 1024px) {
+            .tab-inner {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+            
+            .tab-image {
+                order: -1;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .nav-menu {
+                position: fixed;
+                top: 80px;
+                left: -100%;
+                width: 100%;
+                height: calc(100vh - 80px);
+                background: var(--primary-dark);
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                transition: var(--transition);
+                z-index: 999;
+            }
+            
+            .nav-menu.active {
+                left: 0;
+            }
+            
+            .mobile-menu-btn {
+                display: block;
+            }
+            
+            .page-header h1 {
+                font-size: 2.5rem;
+            }
+            
+            .section-title {
+                font-size: 2rem;
+            }
+            
+            .services-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .service-tabs {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .cta-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .footer-content {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+            
+            .newsletter-form {
+                flex-direction: column;
+            }
+            
+            .footer-heading::after {
+                left: 50%;
+                transform: translateX(-50%);
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <div class="nav-container">
+                <a href="index.html" class="logo">
+                    <img class="logo-img" src="assets/La-gunaLogo.png">
+                    Laguna Guesthouse
+                </a>
+                <button class="mobile-menu-btn">
+                    <i class="fas fa-bars"></i>
+                </button>
+                <nav>
+                    <ul class="nav-menu">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="services.html" class="active">Services</a></li>
+                        <!--<li><a href="gallery.html">Gallery</a></li>-->
+                        <li><a href="about.html">About</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <!-- Page Header -->
+    <section class="page-header">
+        <div class="container">
+            <h1>Our Services</h1>
+            <ul class="breadcrumb">
+                <li><a href="index.html">Home</a></li>
+                <li>Services</li>
+            </ul>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section class="services">
+        <div class="container">
+            <h2 class="section-title">Comprehensive Solutions</h2>
+            <p class="section-subtitle">From comfortable accommodation to professional training and construction services - we're your one-stop destination for excellence</p>
+            
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-icon"><i class="fas fa-hotel"></i></div>
+                    <h3>Premium Accommodation</h3>
+                    <p>Experience comfort and convenience with our daily and long-term accommodation options. Perfect for business travelers, tourists, and extended stays.</p>
+                    <ul class="service-features">
+                        <li><i class="fas fa-check"></i> Daily & long-term stays</li>
+                        <li><i class="fas fa-check"></i> Flexible pricing options</li>
+                        <li><i class="fas fa-check"></i> Business traveler friendly</li>
+                        <li><i class="fas fa-check"></i> Housekeeping services</li>
+                    </ul>
+                    <div class="service-cta">
+                        <!--<span class="service-price">From R450/night</span>-->
+                        <a href="#accommodation" class="service-btn">Learn More</a>
+                    </div>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-icon"><i class="fas fa-graduation-cap"></i></div>
+                    <h3>SETA Accredited Training</h3>
+                    <p>Enhance your skills with our professionally accredited training programs through AGRISETA and BANKSETA.</p>
+                    <ul class="service-features">
+                        <li><i class="fas fa-check"></i> AGRISETA & BANKSETA accredited</li>
+                        <li><i class="fas fa-check"></i> Professional development</li>
+                        <li><i class="fas fa-check"></i> Customized programs</li>
+                        <li><i class="fas fa-check"></i> Certification provided</li>
+                    </ul>
+                    <div class="service-cta">
+                        <!--<span class="service-price">From R1200/course</span>-->
+                        <a href="#training" class="service-btn">Learn More</a>
+                    </div>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-icon"><i class="fas fa-hard-hat"></i></div>
+                    <h3>CIDB Construction</h3>
+                    <p>Professional construction services specializing in civil engineering projects. CIDB accredited with quality infrastructure solutions.</p>
+                    <ul class="service-features">
+                        <li><i class="fas fa-check"></i> CIDB accredited</li>
+                        <li><i class="fas fa-check"></i> Civil engineering projects</li>
+                        <li><i class="fas fa-check"></i> Quality infrastructure</li>
+                        <li><i class="fas fa-check"></i> Project management</li>
+                    </ul>
+                    <div class="service-cta">
+                        <!--<span class="service-price">Custom quotes</span>-->
+                        <a href="#construction" class="service-btn">Learn More</a>
+                    </div>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-icon"><i class="fas fa-utensils"></i></div>
+                    <h3>Catering Excellence</h3>
+                    <p>From daily meals to special events, our catering services provide delicious, fresh cuisine with restaurant partnerships.</p>
+                    <ul class="service-features">
+                        <li><i class="fas fa-check"></i> Daily meals & special events</li>
+                        <li><i class="fas fa-check"></i> Restaurant partnerships</li>
+                        <li><i class="fas fa-check"></i> Fresh, delicious cuisine</li>
+                        <li><i class="fas fa-check"></i> Dietary accommodations</li>
+                    </ul>
+                    <div class="service-cta">
+                        <!--<span class="service-price">From R180/day</span>-->
+                        <a href="#catering" class="service-btn">Learn More</a>
+                    </div>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-icon"><i class="fas fa-tshirt"></i></div>
+                    <h3>Laundry Services</h3>
+                    <p>Complete laundry solutions for our guests' convenience. Professional cleaning services with care and returned fresh.</p>
+                    <ul class="service-features">
+                        <li><i class="fas fa-check"></i> Professional cleaning</li>
+                        <li><i class="fas fa-check"></i> Garment care</li>
+                        <li><i class="fas fa-check"></i> Quick turnaround</li>
+                        <li><i class="fas fa-check"></i> Bulk discounts</li>
+                    </ul>
+                    <div class="service-cta">
+                        <!-- <span class="service-price">From R85/load</span>-->
+                        <a href="#laundry" class="service-btn">Learn More</a>
+                    </div>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-icon"><i class="fas fa-building"></i></div>
+                    <h3>Conference Facilities</h3>
+                    <p>Modern conference facilities equipped for productive meetings and events. Intimate settings for business discussions.</p>
+                    <ul class="service-features">
+                        <li><i class="fas fa-check"></i> Modern facilities</li>
+                        <li><i class="fas fa-check"></i> Intimate settings</li>
+                        <li><i class="fas fa-check"></i> Productive environment</li>
+                        <li><i class="fas fa-check"></i> AV equipment available</li>
+                    </ul>
+                    <div class="service-cta">
+                        <!--<span class="service-price">From R350/day</span>-->
+                        <a href="#conference" class="service-btn">Learn More</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Detailed Services Section -->
+    <section class="detailed-services">
+        <div class="container">
+            <h2 class="section-title" style="color: var(--white);">Service Details</h2>
+            <p class="section-subtitle" style="color: rgba(255,255,255,0.8);">Explore our comprehensive service offerings in detail</p>
+            
+            <div class="service-tabs">
+                <button class="tab-btn active" data-tab="accommodation">Accommodation</button>
+                <button class="tab-btn" data-tab="training">Training</button>
+                <button class="tab-btn" data-tab="construction">Construction</button>
+                <button class="tab-btn" data-tab="catering">Catering</button>
+                <button class="tab-btn" data-tab="laundry">Laundry</button>
+                <button class="tab-btn" data-tab="conference">Conference</button>
+            </div>
+            
+            <div class="tab-content active" id="accommodation">
+                <div class="tab-inner">
+                    <div class="tab-text">
+                        <h3>Premium Accommodation Services</h3>
+                        <p>Our accommodation services are designed for both short-term and extended stays, providing a home away from home for business travelers, tourists, and long-term guests.</p>
+                        
+                        <ul class="tab-features">
+                            <li><i class="fas fa-check-circle"></i> Spacious, well-appointed rooms</li>
+                            <li><i class="fas fa-check-circle"></i> Daily housekeeping services</li>
+                            <li><i class="fas fa-check-circle"></i> High-speed Wi-Fi access</li>
+                            <li><i class="fas fa-check-circle"></i> Secure parking facilities</li>
+                            <li><i class="fas fa-check-circle"></i> 24/7 front desk service</li>
+                            <li><i class="fas fa-check-circle"></i> Air conditioning and heating</li>
+                        </ul>
+                        
+                        <a href="contact.html" class="service-btn">Book Now</a>
+                    </div>
+                    <div class="tab-image">
+                        <img src="assets/accommodation.jpg" alt="Accommodation">
+                    </div>
+                </div>
+            </div>
+            
+            <div class="tab-content" id="training">
+                <div class="tab-inner">
+                    <div class="tab-text">
+                        <h3>SETA Accredited Training Programs</h3>
+                        <p>We offer comprehensive training programs accredited by AGRISETA and BANKSETA, designed to enhance professional skills and career development.</p>
+                        
+                        <ul class="tab-features">
+                            <li><i class="fas fa-check-circle"></i> AGRISETA & BANKSETA accreditation</li>
+                            <li><i class="fas fa-check-circle"></i> Industry-relevant curriculum</li>
+                            <li><i class="fas fa-check-circle"></i> Experienced trainers</li>
+                            <li><i class="fas fa-check-circle"></i> Customized corporate training</li>
+                            <li><i class="fas fa-check-circle"></i> Certification upon completion</li>
+                            <li><i class="fas fa-check-circle"></i> Modern training facilities</li>
+                        </ul>
+                        
+                        <a href="contact.html" class="service-btn">Enquire Now</a>
+                    </div>
+                    <div class="tab-image">
+                        <img src="https://images.unsplash.com/photo-1497366811353-6870744d04b2?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Training">
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Additional tab contents would follow the same pattern -->
+            
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="faq">
+        <div class="container">
+            <h2 class="section-title">Frequently Asked Questions</h2>
+            <p class="section-subtitle">Find answers to common questions about our services</p>
+            
+            <div class="accordion">
+                <div class="accordion-item">
+                    <div class="accordion-header">
+                        <span>What are the check-in and check-out times?</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="accordion-content">
+                        <p>Check-in time is from 2:00 PM, and check-out is until 10:00 AM. Early check-in and late check-out may be available upon request, subject to availability and additional charges.</p>
+                    </div>
+                </div>
+                
+                <div class="accordion-item">
+                    <div class="accordion-header">
+                        <span>Do you offer long-term stay discounts?</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="accordion-content">
+                        <p>Yes, we offer special rates for extended stays. Please contact our reservations team for customized long-stay packages and discounts.</p>
+                    </div>
+                </div>
+                
+                <div class="accordion-item">
+                    <div class="accordion-header">
+                        <span>Are your training programs accredited?</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="accordion-content">
+                        <p>Yes, all our training programs are accredited by the relevant SETA bodies (AGRISETA and BANKSETA), ensuring quality education and recognized certification.</p>
+                    </div>
+                </div>
+                
+                <div class="accordion-item">
+                    <div class="accordion-header">
+                        <span>Do you provide transportation services?</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="accordion-content">
+                        <p>We can arrange transportation services upon request. Please contact us in advance to make arrangements for airport transfers or local transportation.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta">
+        <div class="container">
+            <h2>Ready to Experience Our Services?</h2>
+            <p>Contact us today to book accommodation, schedule training, or discuss your specific needs with our team.</p>
+            <div class="cta-buttons">
+                <a href="contact.html" class="cta-button">Get In Touch</a>
+                <a href="tel:0829230340" class="cta-button secondary">Call Now</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-about">
+                    <div class="footer-logo">
+                        <img class="logo-img" src="assets/La-gunaLogo.png">
+                        Laguna Guesthouse
+                    </div>
+                    <p>Your gateway to professional hospitality, training, and comprehensive business solutions in the heart of Kuruman.</p>
+                    <p>Where consistency meets integrity, and every service exceeds expectations.</p>
+                </div>
+                
+                <div class="footer-links-container">
+                    <h4 class="footer-heading">Quick Links</h4>
+                    <ul class="footer-links">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="services.html">Services</a></li>
+                        <li><a href="gallery.html">Gallery</a></li>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-services">
+                    <h4 class="footer-heading">Our Services</h4>
+                    <ul class="footer-links">
+                        <li><a href="services.html">Accommodation</a></li>
+                        <li><a href="services.html">SETA Training</a></li>
+                        <li><a href="services.html">Construction</a></li>
+                        <li><a href="services.html">Catering</a></li>
+                        <li><a href="services.html">Laundry Services</a></li>
+                        <li><a href="services.html">Conference Facilities</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-newsletter">
+                    <h4 class="footer-heading">Newsletter</h4>
+                    <p>Subscribe to our newsletter for updates and special offers.</p>
+                    <form class="newsletter-form">
+                        <input type="email" placeholder="Your email address" required>
+                        <button type="submit">Subscribe</button>
+                    </form>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2024 Laguna Guesthouse (PTY) LTD. All rights reserved.</p>
+                <p>Your Gateway to Excellence in Kuruman</p>
+                
+                <div class="social-links">
+                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="#"><i class="fab fa-whatsapp"></i></a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile menu toggle
+        const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
+        const navMenu = document.querySelector('.nav-menu');
+        
+        mobileMenuBtn.addEventListener('click', () => {
+            navMenu.classList.toggle('active');
+            mobileMenuBtn.innerHTML = navMenu.classList.contains('active') ? 
+                '<i class="fas fa-times"></i>' : '<i class="fas fa-bars"></i>';
+        });
+        
+        // Close mobile menu when clicking on a link
+        document.querySelectorAll('.nav-menu a').forEach(link => {
+            link.addEventListener('click', () => {
+                navMenu.classList.remove('active');
+                mobileMenuBtn.innerHTML = '<i class="fas fa-bars"></i>';
+            });
+        });
+
+        // Service tabs functionality
+        const tabBtns = document.querySelectorAll('.tab-btn');
+        const tabContents = document.querySelectorAll('.tab-content');
+        
+        tabBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                // Remove active class from all buttons and contents
+                tabBtns.forEach(b => b.classList.remove('active'));
+                tabContents.forEach(c => c.classList.remove('active'));
+                
+                // Add active class to clicked button
+                btn.classList.add('active');
+                
+                // Show corresponding content
+                const tabId = btn.getAttribute('data-tab');
+                document.getElementById(tabId).classList.add('active');
+            });
+        });
+
+        // FAQ accordion functionality
+        const accordionHeaders = document.querySelectorAll('.accordion-header');
+        
+        accordionHeaders.forEach(header => {
+            header.addEventListener('click', () => {
+                const content = header.nextElementSibling;
+                const isActive = content.classList.contains('active');
+                
+                // Close all accordion items
+                document.querySelectorAll('.accordion-content').forEach(item => {
+                    item.classList.remove('active');
+                });
+                
+                document.querySelectorAll('.accordion-header i').forEach(icon => {
+                    icon.classList.remove('fa-chevron-up');
+                    icon.classList.add('fa-chevron-down');
+                });
+                
+                // Open clicked item if it was closed
+                if (!isActive) {
+                    content.classList.add('active');
+                    header.querySelector('i').classList.remove('fa-chevron-down');
+                    header.querySelector('i').classList.add('fa-chevron-up');
+                }
+            });
+        });
+
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>

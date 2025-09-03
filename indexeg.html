@@ -1,0 +1,1175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Laguna Guesthouse - Your Gateway to Excellence</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            overflow-x: hidden;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header */
+        .header {
+            background: linear-gradient(135deg, #2c5aa0 0%, #1e3a5f 100%);
+            color: white;
+            padding: 1rem 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            backdrop-filter: blur(10px);
+        }
+
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: bold;
+            text-decoration: none;
+            color: white;
+            background: linear-gradient(45deg, #ffd700, #ffed4e);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        .nav-menu a {
+            color: white;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            padding: 0.5rem 1rem;
+            border-radius: 25px;
+        }
+
+        .nav-menu a:hover {
+            background: rgba(255, 215, 0, 0.2);
+            transform: translateY(-2px);
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, rgba(44, 90, 160, 0.9) 0%, rgba(30, 58, 95, 0.9) 100%), 
+                        url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 600"><rect fill="%23f0f8ff" width="1000" height="600"/><circle fill="%23e6f3ff" cx="200" cy="150" r="80"/><circle fill="%23ddeeff" cx="800" cy="100" r="60"/><circle fill="%23d4e9ff" cx="600" cy="400" r="100"/><circle fill="%23cbdfff" cx="150" cy="450" r="70"/></svg>');
+            background-size: cover;
+            background-position: center;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            text-align: center;
+            color: white;
+            position: relative;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(45deg, rgba(44, 90, 160, 0.1), rgba(255, 215, 0, 0.05));
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            animation: fadeInUp 1s ease-out;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            background: linear-gradient(45deg, #ffd700, #ffed4e, #ffffff);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            animation: shimmer 3s ease-in-out infinite;
+        }
+
+        .hero p {
+            font-size: 1.3rem;
+            margin-bottom: 2rem;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .cta-button {
+            display: inline-block;
+            background: linear-gradient(45deg, #ffd700, #ffed4e);
+            color: #1e3a5f;
+            padding: 1rem 2.5rem;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: bold;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 8px 30px rgba(255, 215, 0, 0.3);
+        }
+
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 12px 40px rgba(255, 215, 0, 0.4);
+            background: linear-gradient(45deg, #ffed4e, #ffd700);
+        }
+
+        /* Live Availability Banner */
+        .availability-banner {
+            background: linear-gradient(135deg, #1e3a5f 0%, #2c5aa0 50%, #1e3a5f 100%);
+            color: white;
+            padding: 1.5rem 0;
+            position: sticky;
+            top: 80px;
+            z-index: 500;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+        }
+
+        .availability-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 2rem;
+        }
+
+        .live-indicator {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-weight: bold;
+        }
+
+        .pulse-dot {
+            width: 12px;
+            height: 12px;
+            background: #00ff88;
+            border-radius: 50%;
+            animation: pulse 2s infinite;
+            box-shadow: 0 0 10px #00ff88;
+        }
+
+        .availability-info {
+            display: flex;
+            gap: 3rem;
+        }
+
+        .availability-item {
+            text-align: center;
+        }
+
+        .availability-number {
+            display: block;
+            font-size: 1.8rem;
+            font-weight: bold;
+            color: #ffd700;
+        }
+
+        .availability-label {
+            font-size: 0.9rem;
+            opacity: 0.9;
+        }
+
+        .instant-book-btn {
+            background: linear-gradient(45deg, #00ff88, #00cc6a);
+            color: white;
+            border: none;
+            padding: 0.8rem 2rem;
+            border-radius: 25px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(0, 255, 136, 0.3);
+        }
+
+        .instant-book-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(0, 255, 136, 0.4);
+        }
+
+        /* Service Bundle Builder */
+        .bundle-builder {
+            background: white;
+            border-radius: 20px;
+            padding: 3rem;
+            box-shadow: 0 15px 40px rgba(0,0,0,0.1);
+            border: 2px solid #ffd700;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .bundle-builder::before {
+            content: '💼 PACKAGE BUILDER';
+            position: absolute;
+            top: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: #ffd700;
+            color: #1e3a5f;
+            padding: 0.5rem 2rem;
+            border-radius: 15px;
+            font-weight: bold;
+            font-size: 0.9rem;
+        }
+
+        .bundle-interface {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 3rem;
+        }
+
+        .service-selector {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .bundle-option {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 1rem 1.5rem;
+            border: 2px solid #f0f0f0;
+            border-radius: 15px;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .bundle-option:hover {
+            border-color: #2c5aa0;
+            background: rgba(44, 90, 160, 0.05);
+        }
+
+        .bundle-option.selected {
+            border-color: #ffd700;
+            background: rgba(255, 215, 0, 0.1);
+        }
+
+        .bundle-option input[type="checkbox"] {
+            margin-right: 1rem;
+            transform: scale(1.2);
+        }
+
+        .bundle-option label {
+            flex: 1;
+            cursor: pointer;
+            font-weight: 500;
+        }
+
+        .price {
+            color: #2c5aa0;
+            font-weight: bold;
+        }
+
+        .bundle-summary {
+            background: linear-gradient(135deg, #f8fdff, #ffffff);
+            border-radius: 15px;
+            padding: 2rem;
+            height: fit-content;
+            border: 1px solid rgba(44, 90, 160, 0.1);
+        }
+
+        .bundle-total h4 {
+            color: #1e3a5f;
+            margin-bottom: 1.5rem;
+            text-align: center;
+        }
+
+        .selected-services {
+            min-height: 100px;
+            margin-bottom: 1.5rem;
+            padding: 1rem;
+            background: white;
+            border-radius: 10px;
+            border: 1px solid #e0e0e0;
+        }
+
+        .service-item {
+            display: flex;
+            justify-content: space-between;
+            padding: 0.5rem 0;
+            border-bottom: 1px solid #f0f0f0;
+        }
+
+        .service-item:last-child {
+            border-bottom: none;
+        }
+
+        .total-price {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+
+        .original-price {
+            text-decoration: line-through;
+            color: #999;
+            font-size: 1rem;
+        }
+
+        .discounted-price {
+            display: block;
+            font-size: 2rem;
+            font-weight: bold;
+            color: #2c5aa0;
+            margin: 0.5rem 0;
+        }
+
+        .savings {
+            background: #00ff88;
+            color: white;
+            padding: 0.3rem 1rem;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            font-weight: bold;
+        }
+
+        .quote-btn {
+            width: 100%;
+            background: linear-gradient(45deg, #2c5aa0, #1e3a5f);
+            color: white;
+            border: none;
+            padding: 1rem;
+            border-radius: 10px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .quote-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(44, 90, 160, 0.3);
+        }
+
+        /* Booking Modal */
+        .booking-modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.8);
+            z-index: 2000;
+            backdrop-filter: blur(10px);
+        }
+
+        .modal-content {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: white;
+            border-radius: 20px;
+            padding: 3rem;
+            max-width: 500px;
+            width: 90%;
+            text-align: center;
+        }
+
+        .close-modal {
+            position: absolute;
+            top: 15px;
+            right: 20px;
+            font-size: 2rem;
+            cursor: pointer;
+            color: #999;
+        }
+
+        @keyframes pulse {
+            0% { box-shadow: 0 0 0 0 rgba(0, 255, 136, 0.7); }
+            70% { box-shadow: 0 0 0 10px rgba(0, 255, 136, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(0, 255, 136, 0); }
+        }
+
+        @media (max-width: 768px) {
+            .availability-content {
+                flex-direction: column;
+                text-align: center;
+                gap: 1rem;
+            }
+
+            .availability-info {
+                gap: 2rem;
+            }
+
+            .bundle-interface {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .bundle-option {
+                flex-direction: column;
+                text-align: center;
+                gap: 0.5rem;
+            }
+        }
+
+        /* Services Section */
+        .services {
+            padding: 6rem 0;
+            background: linear-gradient(135deg, #f8fdff 0%, #ffffff 100%);
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            color: #1e3a5f;
+            margin-bottom: 1rem;
+        }
+
+        .section-subtitle {
+            text-align: center;
+            font-size: 1.2rem;
+            color: #666;
+            margin-bottom: 4rem;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .service-card {
+            background: white;
+            padding: 2.5rem;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+            border: 1px solid rgba(44, 90, 160, 0.1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .service-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: linear-gradient(45deg, #2c5aa0, #ffd700);
+        }
+
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 50px rgba(0,0,0,0.15);
+        }
+
+        .service-icon {
+            font-size: 3rem;
+            color: #2c5aa0;
+            margin-bottom: 1.5rem;
+        }
+
+        .service-card h3 {
+            font-size: 1.5rem;
+            color: #1e3a5f;
+            margin-bottom: 1rem;
+        }
+
+        .service-card p {
+            color: #666;
+            line-height: 1.7;
+        }
+
+        /* About Section */
+        .about {
+            padding: 6rem 0;
+            background: linear-gradient(135deg, #1e3a5f 0%, #2c5aa0 100%);
+            color: white;
+        }
+
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .about-text h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1.5rem;
+            background: linear-gradient(45deg, #ffd700, #ffed4e);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .about-text p {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            margin-bottom: 1.5rem;
+            text-shadow: 0 1px 2px rgba(0,0,0,0.1);
+        }
+
+        .values-list {
+            display: flex;
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .value-item {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 1.5rem;
+            border-radius: 15px;
+            text-align: center;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .value-item h4 {
+            color: #ffd700;
+            margin-bottom: 0.5rem;
+        }
+
+        .contact {
+            padding: 6rem 0;
+            background: linear-gradient(135deg, #f8fdff 0%, #ffffff 100%);
+        }
+
+        .contact-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+        }
+
+        .contact-info {
+            background: white;
+            padding: 3rem;
+            border-radius: 20px;
+            box-shadow: 0 15px 40px rgba(0,0,0,0.1);
+            border: 1px solid rgba(44, 90, 160, 0.1);
+        }
+
+        .contact-info h3 {
+            color: #1e3a5f;
+            font-size: 1.8rem;
+            margin-bottom: 2rem;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 1.5rem;
+            padding: 1rem;
+            background: rgba(44, 90, 160, 0.05);
+            border-radius: 10px;
+            transition: all 0.3s ease;
+        }
+
+        .contact-item:hover {
+            background: rgba(44, 90, 160, 0.1);
+            transform: translateX(5px);
+        }
+
+        .contact-icon {
+            font-size: 1.5rem;
+            color: #2c5aa0;
+            margin-right: 1rem;
+            width: 30px;
+        }
+
+        .location-map {
+            background: linear-gradient(135deg, #2c5aa0, #1e3a5f);
+            border-radius: 20px;
+            padding: 3rem;
+            color: white;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .location-map::before {
+            content: '📍';
+            font-size: 4rem;
+            margin-bottom: 1rem;
+            animation: bounce 2s infinite;
+        }
+
+        .location-map h3 {
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+            color: #ffd700;
+        }
+
+        .footer {
+            background: #1e3a5f;
+            color: white;
+            text-align: center;
+            padding: 3rem 0;
+        }
+
+        .footer p {
+            margin-bottom: 1rem;
+        }
+
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .footer-links a {
+            color: #ffd700;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .footer-links a:hover {
+            color: #ffed4e;
+            transform: translateY(-2px);
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes shimmer {
+            0%, 100% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+        }
+
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
+            40% { transform: translateY(-10px); }
+            60% { transform: translateY(-5px); }
+        }
+
+        @media (max-width: 768px) {
+            .nav-menu {
+                display: none;
+            }
+
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero p {
+                font-size: 1.1rem;
+            }
+
+            .about-content,
+            .contact-content {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .values-list {
+                flex-direction: column;
+                gap: 1rem;
+            }
+
+            .section-title {
+                font-size: 2rem;
+            }
+
+            .services-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <div class="nav-container">
+                <a href="#" class="logo">Laguna Guesthouse</a>
+                <nav>
+                    <ul class="nav-menu">
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#services">Services</a></li>
+                        <li><a href="#about">About</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <section id="home" class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <h1>Welcome to Excellence</h1>
+                <p>Your gateway to professional hospitality, training, and comprehensive business solutions in the heart of Kuruman. Where consistency meets integrity, and every service exceeds expectations.</p>
+                <a href="#services" class="cta-button">Discover Our Services</a>
+            </div>
+        </div>
+    </section>
+
+    <section class="availability-banner">
+        <div class="container">
+            <div class="availability-content">
+                <div class="live-indicator">
+                    <span class="pulse-dot"></span>
+                    <span>LIVE STATUS</span>
+                </div>
+                <div class="availability-info">
+                    <div class="availability-item">
+                        <span class="availability-number" id="rooms-available">7</span>
+                        <span class="availability-label">Rooms Available</span>
+                    </div>
+                    <div class="availability-item">
+                        <span class="availability-number" id="training-slots">12</span>
+                        <span class="availability-label">Training Slots</span>
+                    </div>
+                    <div class="availability-item">
+                        <span class="availability-number" id="conference-hours">24</span>
+                        <span class="availability-label">Conference Hours</span>
+                    </div>
+                </div>
+                <div class="instant-booking">
+                    <button class="instant-book-btn" onclick="showBookingModal()">⚡ Instant Book</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="services" class="services">
+        <div class="container">
+            <h2 class="section-title fade-in">Comprehensive Solutions</h2>
+            <p class="section-subtitle fade-in">From comfortable accommodation to professional training and construction services - we're your one-stop destination for excellence</p>
+            
+            <div class="services-grid">
+                <div class="service-card fade-in">
+                    <div class="service-icon">🏨</div>
+                    <h3>Premium Accommodation</h3>
+                    <p>Experience comfort and convenience with our daily and long-term accommodation options. Perfect for business travelers, tourists, and extended stays with flexible pricing and exceptional service.</p>
+                </div>
+
+                <div class="service-card fade-in">
+                    <div class="service-icon">🎓</div>
+                    <h3>SETA Accredited Training</h3>
+                    <p>Enhance your skills with our professionally accredited training programs through AGRISETA and BANKSETA. We're committed to empowering individuals and organizations with quality education.</p>
+                </div>
+
+                <div class="service-card fade-in">
+                    <div class="service-icon">🏗️</div>
+                    <h3>CIDB Construction</h3>
+                    <p>Professional construction services specializing in civil engineering projects. CIDB accredited with a track record of delivering quality infrastructure solutions.</p>
+                </div>
+
+                <div class="service-card fade-in">
+                    <div class="service-icon">🍽️</div>
+                    <h3>Catering Excellence</h3>
+                    <p>From daily meals to special events, our catering services provide delicious, fresh cuisine. Breakfast, lunch boxes, dinner, and event catering with restaurant partnerships.</p>
+                </div>
+
+                <div class="service-card fade-in">
+                    <div class="service-icon">🧺</div>
+                    <h3>Laundry Services</h3>
+                    <p>Complete laundry solutions for our guests' convenience. Professional cleaning services that ensure your garments are treated with care and returned fresh.</p>
+                </div>
+
+                <div class="service-card fade-in">
+                    <div class="service-icon">🏢</div>
+                    <h3>Conference Facilities</h3>
+                    <p>Modern conference facilities equipped for productive meetings and events. Intimate settings perfect for focused business discussions and professional gatherings.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="about" class="about">
+        <div class="container">
+            <div class="about-content">
+                <div class="about-text fade-in">
+                    <h2>Driven by Excellence Since 2012</h2>
+                    <p>Under the visionary leadership of Ms. Lorato Kurite, Laguna Guesthouse has grown from a hospitality dream into a comprehensive service provider that touches every aspect of professional and personal needs.</p>
+                    <p>Our journey began with a simple commitment to excellence, and today we proudly serve the Kuruman community and surrounding mining industry with integrity, consistency, and unwavering dedication to quality.</p>
+                    <p><strong>Mission:</strong> Provide excellent service in a professional manner.</p>
+                    <p><strong>Vision:</strong> To be a preferred service provider in the entire District.</p>
+                </div>
+                
+                <div class="values-list fade-in">
+                    <div class="value-item">
+                        <h4>Consistency</h4>
+                        <p>Reliable service, every time</p>
+                    </div>
+                    <div class="value-item">
+                        <h4>Integrity</h4>
+                        <p>Honest, transparent partnerships</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="contact">
+        <div class="container">
+            <h2 class="section-title fade-in">Connect With Us</h2>
+            <p class="section-subtitle fade-in">Ready to experience excellence? Let's discuss how we can serve you</p>
+            
+            <div class="bundle-builder fade-in" style="margin-bottom: 4rem;">
+                <h3 style="text-align: center; color: #1e3a5f; margin-bottom: 2rem;">Build Your Perfect Package</h3>
+                <div class="bundle-interface">
+                    <div class="service-selector">
+                        <div class="bundle-option" data-service="accommodation" data-price="450">
+                            <input type="checkbox" id="acc">
+                            <label for="acc">🏨 Accommodation (2 nights)</label>
+                            <span class="price">R450/night</span>
+                        </div>
+                        <div class="bundle-option" data-service="catering" data-price="180">
+                            <input type="checkbox" id="cat">
+                            <label for="cat">🍽️ Daily Catering</label>
+                            <span class="price">R180/day</span>
+                        </div>
+                        <div class="bundle-option" data-service="laundry" data-price="85">
+                            <input type="checkbox" id="lau">
+                            <label for="lau">🧺 Laundry Service</label>
+                            <span class="price">R85/load</span>
+                        </div>
+                        <div class="bundle-option" data-service="training" data-price="1200">
+                            <input type="checkbox" id="tra">
+                            <label for="tra">🎓 SETA Training</label>
+                            <span class="price">R1200/course</span>
+                        </div>
+                        <div class="bundle-option" data-service="conference" data-price="350">
+                            <input type="checkbox" id="conf">
+                            <label for="conf">🏢 Conference Facility</label>
+                            <span class="price">R350/day</span>
+                        </div>
+                    </div>
+                    <div class="bundle-summary">
+                        <div class="bundle-total">
+                            <h4>Your Package</h4>
+                            <div class="selected-services" id="selectedServices">
+                                <p>Select services to see your custom package</p>
+                            </div>
+                            <div class="total-price">
+                                <span class="original-price" id="originalPrice">R0</span>
+                                <span class="discounted-price" id="discountedPrice">R0</span>
+                                <span class="savings" id="savings">Save 0%</span>
+                            </div>
+                            <button class="quote-btn" onclick="requestQuote()">Get Instant Quote</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="contact-content">
+                <div class="contact-info fade-in">
+                    <h3>Get In Touch</h3>
+                    
+                    <div class="contact-item">
+                        <div class="contact-icon">📱</div>
+                        <div>
+                            <strong>Ms. Lorato Kurite - CEO</strong><br>
+                            <a href="tel:0829230340" style="color: #2c5aa0; text-decoration: none;">082 923 0340</a>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-item">
+                        <div class="contact-icon">📞</div>
+                        <div>
+                            <strong>Office</strong><br>
+                            <a href="tel:0537122281" style="color: #2c5aa0; text-decoration: none;">053 712 2281</a>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-item">
+                        <div class="contact-icon">✉️</div>
+                        <div>
+                            <strong>Email</strong><br>
+                            <a href="mailto:info@villaguna.co.za" style="color: #2c5aa0; text-decoration: none;">info@villaguna.co.za</a>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-item">
+                        <div class="contact-icon">📋</div>
+                        <div>
+                            <strong>Registration</strong><br>
+                            2012/057189/07
+                        </div>
+                    </div>
+                </div>
+
+                <div class="location-map fade-in">
+                    <h3>Visit Us</h3>
+                    <p><strong>28 Acacia Street</strong></p>
+                    <p>Central Kuruman</p>
+                    <p>Northern Cape, South Africa</p>
+                    <div style="margin-top: 2rem; padding: 1rem; background: rgba(255,255,255,0.1); border-radius: 10px;">
+                        <p>Perfectly positioned in the heart of Kuruman for easy access to local businesses, mines, and attractions.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2024 Laguna Guesthouse (PTY) LTD. All rights reserved.</p>
+            <p>Your Gateway to Excellence in Kuruman</p>
+            <div class="footer-links">
+                <a href="tel:0829230340">Call Us</a>
+                <a href="mailto:info@villaguna.co.za">Email</a>
+                <a href="#services">Services</a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Live availability counter animation
+        function updateAvailability() {
+            const rooms = document.getElementById('rooms-available');
+            const training = document.getElementById('training-slots');
+            const conference = document.getElementById('conference-hours');
+
+            // Simulate real-time updates
+            setInterval(() => {
+                const roomCount = Math.floor(Math.random() * 5) + 5; // 5-9 rooms
+                const trainingCount = Math.floor(Math.random() * 8) + 8; // 8-15 slots
+                const conferenceCount = Math.floor(Math.random() * 10) + 20; // 20-29 hours
+
+                animateCounter(rooms, parseInt(rooms.textContent), roomCount);
+                animateCounter(training, parseInt(training.textContent), trainingCount);
+                animateCounter(conference, parseInt(conference.textContent), conferenceCount);
+            }, 15000); // Update every 15 seconds
+        }
+
+        function animateCounter(element, start, end) {
+            const duration = 1000;
+            const range = end - start;
+            const startTime = performance.now();
+
+            function animate(currentTime) {
+                const elapsed = currentTime - startTime;
+                const progress = Math.min(elapsed / duration, 1);
+                const current = Math.floor(start + (range * progress));
+                
+                element.textContent = current;
+                
+                if (progress < 1) {
+                    requestAnimationFrame(animate);
+                }
+            }
+            
+            requestAnimationFrame(animate);
+        }
+
+        // Bundle Builder Functionality
+        function initBundleBuilder() {
+            const options = document.querySelectorAll('.bundle-option');
+            const selectedServices = document.getElementById('selectedServices');
+            const originalPrice = document.getElementById('originalPrice');
+            const discountedPrice = document.getElementById('discountedPrice');
+            const savings = document.getElementById('savings');
+
+            let selectedItems = [];
+
+            options.forEach(option => {
+                const checkbox = option.querySelector('input');
+                
+                option.addEventListener('click', (e) => {
+                    if (e.target.type !== 'checkbox') {
+                        checkbox.checked = !checkbox.checked;
+                    }
+                    
+                    option.classList.toggle('selected', checkbox.checked);
+                    updateBundle();
+                });
+            });
+
+            function updateBundle() {
+                selectedItems = [];
+                let total = 0;
+
+                options.forEach(option => {
+                    const checkbox = option.querySelector('input');
+                    if (checkbox.checked) {
+                        const service = option.dataset.service;
+                        const price = parseInt(option.dataset.price);
+                        const label = option.querySelector('label').textContent;
+                        
+                        selectedItems.push({ service, price, label });
+                        total += price;
+                    }
+                });
+
+                // Update display
+                if (selectedItems.length === 0) {
+                    selectedServices.innerHTML = '<p>Select services to see your custom package</p>';
+                    originalPrice.textContent = 'R0';
+                    discountedPrice.textContent = 'R0';
+                    savings.textContent = 'Save 0%';
+                } else {
+                    // Calculate discount based on number of services
+                    let discountPercent = 0;
+                    if (selectedItems.length >= 2) discountPercent = 10;
+                    if (selectedItems.length >= 3) discountPercent = 15;
+                    if (selectedItems.length >= 4) discountPercent = 20;
+                    if (selectedItems.length >= 5) discountPercent = 25;
+
+                    const discountAmount = total * (discountPercent / 100);
+                    const finalPrice = total - discountAmount;
+
+                    // Update service list
+                    selectedServices.innerHTML = selectedItems.map(item => 
+                        `<div class="service-item">
+                            <span>${item.label}</span>
+                            <span>R${item.price}</span>
+                        </div>`
+                    ).join('');
+
+                    // Update pricing
+                    originalPrice.textContent = `R${total}`;
+                    discountedPrice.textContent = `R${finalPrice}`;
+                    savings.textContent = `Save ${discountPercent}%`;
+                    savings.style.display = discountPercent > 0 ? 'inline-block' : 'none';
+                }
+            }
+        }
+
+        // Booking Modal
+        function showBookingModal() {
+            const modal = document.createElement('div');
+            modal.className = 'booking-modal';
+            modal.style.display = 'flex';
+            modal.innerHTML = `
+                <div class="modal-content">
+                    <span class="close-modal" onclick="this.parentElement.parentElement.remove()">&times;</span>
+                    <h2>🚀 Instant Booking</h2>
+                    <p>Ready to experience excellence? Let's get you booked!</p>
+                    <div style="margin: 2rem 0;">
+                        <p><strong>📱 Call Now:</strong> <a href="tel:0829230340" style="color: #2c5aa0;">082 923 0340</a></p>
+                        <p><strong>✉️ Email:</strong> <a href="mailto:info@villaguna.co.za" style="color: #2c5aa0;">info@villaguna.co.za</a></p>
+                    </div>
+                    <p style="font-size: 0.9rem; color: #666;">Mention "Website Special" for exclusive rates!</p>
+                </div>
+            `;
+            document.body.appendChild(modal);
+        }
+
+        function requestQuote() {
+            const selectedItems = [];
+            document.querySelectorAll('.bundle-option.selected').forEach(option => {
+                selectedItems.push(option.querySelector('label').textContent);
+            });
+
+            if (selectedItems.length === 0) {
+                alert('Please select at least one service to get a quote.');
+                return;
+            }
+
+            const message = `Hi Laguna Guesthouse! I'm interested in a custom package including: ${selectedItems.join(', ')}. Can you provide a detailed quote?`;
+            const whatsappURL = `https://wa.me/27829230340?text=${encodeURIComponent(message)}`;
+            window.open(whatsappURL, '_blank');
+        }
+
+        // Initialize everything when page loads
+        document.addEventListener('DOMContentLoaded', function() {
+            updateAvailability();
+            initBundleBuilder();
+        });
+
+        // Smooth scrolling
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Scroll animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.fade-in').forEach(el => {
+            observer.observe(el);
+        });
+
+        // Header scroll effect
+        window.addEventListener('scroll', () => {
+            const header = document.querySelector('.header');
+            if (window.scrollY > 100) {
+                header.style.background = 'linear-gradient(135deg, rgba(44, 90, 160, 0.95) 0%, rgba(30, 58, 95, 0.95) 100%)';
+                header.style.backdropFilter = 'blur(20px)';
+            } else {
+                header.style.background = 'linear-gradient(135deg, #2c5aa0 0%, #1e3a5f 100%)';
+                header.style.backdropFilter = 'blur(10px)';
+            }
+        });
+
+        // Add interactive hover effects
+        document.querySelectorAll('.service-card').forEach(card => {
+            card.addEventListener('mouseenter', function() {
+                this.style.transform = 'translateY(-10px) scale(1.02)';
+            });
+            
+            card.addEventListener('mouseleave', function() {
+                this.style.transform = 'translateY(0) scale(1)';
+            });
+        });
+    </script>
+</body>
+</html>
